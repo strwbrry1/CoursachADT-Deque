@@ -24,11 +24,20 @@ namespace CoursachADT_Deque
         }
 
 
-        public State? GetState()
+        public State? GetNextState()
         {
-            if (currentState >= 0 && currentState < StateList.Count)
+            if (StateList[currentState + 1] != null)
             {
-                return StateList[currentState];
+                return StateList[++currentState];
+            }
+            return null;
+        }
+
+        public State? GetPrevState()
+        {
+            if (currentState - 1 > 0)
+            {
+                return StateList[--currentState];
             }
             return null;
         }
@@ -46,10 +55,7 @@ namespace CoursachADT_Deque
 
         public void Traverse()
         {
-            while (NextState())
-            {
-                //StateList.GetState();
-            }
+            //TODO
         }
 
         public void SaveToFile(string filename)

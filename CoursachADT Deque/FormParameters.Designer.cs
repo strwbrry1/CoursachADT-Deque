@@ -87,6 +87,7 @@
             buttonCancel.TabIndex = 6;
             buttonCancel.Text = "Отмена";
             buttonCancel.UseVisualStyleBackColor = false;
+            buttonCancel.Click += buttonCancel_Click;
             // 
             // numericUpDownMaxSize
             // 

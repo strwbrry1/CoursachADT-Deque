@@ -14,6 +14,7 @@ namespace CoursachADT_Deque
 
         private int maxSize;
 
+        public int lastOperation = 0; 
 
         public DequeRealizer(int maxSize, int numElems)
         {
@@ -42,6 +43,7 @@ namespace CoursachADT_Deque
             {
                 list?.AddFirst(value);
                 numElems++;
+                lastOperation = 1;
             }
             else
             {
@@ -55,6 +57,7 @@ namespace CoursachADT_Deque
             {
                 list?.AddLast(value);
                 numElems++;
+                lastOperation = -1;
             }
             else
             {
@@ -71,6 +74,7 @@ namespace CoursachADT_Deque
             int temp = list.getHead();
             list.RemoveHead();
             numElems--;
+            lastOperation = 1;
             return temp;
         }
 
@@ -83,6 +87,7 @@ namespace CoursachADT_Deque
             int temp = list.getTail();
             list.RemoveTail();
             numElems--;
+            lastOperation = -1;
             return temp;
         }
 

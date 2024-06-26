@@ -52,7 +52,12 @@ namespace CoursachADT_Deque
             {
                 MessageBox.Show("Максимальное количество элементов не может быть 0!", "Ошибка", MessageBoxButtons.OK);
             }
-           
+
+        }
+
+        private void buttonCancel_Click(object sender, EventArgs e)
+        {
+            Close();
         }
     }
 }

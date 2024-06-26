@@ -48,6 +48,7 @@ namespace CoursachADT_Deque
             }
             deque.InsertFirst((int)numericUpDownInput.Value);
             stateStorage.AddState(deque.SaveState());
+            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void buttonAddLast_Click(object sender, EventArgs e)
@@ -58,6 +59,7 @@ namespace CoursachADT_Deque
             }
             deque.InsertLast((int)numericUpDownInput.Value);
             stateStorage.AddState(deque.SaveState());
+            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void buttonRemoveFrist_Click(object sender, EventArgs e)
@@ -68,6 +70,7 @@ namespace CoursachADT_Deque
             }
             deque.PopFirst();
             stateStorage.AddState(deque.SaveState());
+            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void buttonRemoveLast_Click(object sender, EventArgs e)
@@ -78,6 +81,7 @@ namespace CoursachADT_Deque
             }
             deque.PopLast();
             stateStorage.AddState(deque.SaveState());
+            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -88,6 +92,7 @@ namespace CoursachADT_Deque
             }
             deque.Clear();
             stateStorage.AddState(deque.SaveState());
+            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)

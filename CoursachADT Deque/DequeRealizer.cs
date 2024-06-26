@@ -12,57 +12,39 @@ namespace CoursachADT_Deque
 
         public int numElems;
 
-        private int maxSize;
+        public int lastOperation = 0;
 
-        public int lastOperation = 0; 
-
-        public DequeRealizer(int maxSize, int numElems)
+        public DequeRealizer(int numElems)
         {
-            if (maxSize <= numElems)
-            {
-                this.numElems = maxSize;
-            }
-            else
-            {
-                this.numElems = numElems;
-            }
+
+            this.numElems = numElems;
             this.list = new DoubleLinkedList<int>();
-            
-            this.maxSize = maxSize;
+
 
             Random rnd = new Random();
             for (int i = 0; i < numElems; i++)
             {
                 list?.AddLast(rnd.Next(1, 10));
+                lastOperation = 1;
             }
         }
 
         public void InsertFirst(int value)
         {
-            if (numElems < maxSize)
-            {
-                list?.AddFirst(value);
-                numElems++;
-                lastOperation = 1;
-            }
-            else
-            {
-                throw new IndexOutOfRangeException("Очередь переполнена!");
-            }
+
+            list?.AddFirst(value);
+            numElems++;
+            lastOperation = 1;
+
         }
 
         public void InsertLast(int value)
         {
-            if (numElems < maxSize)
-            {
-                list?.AddLast(value);
-                numElems++;
-                lastOperation = -1;
-            }
-            else
-            {
-                throw new IndexOutOfRangeException("Очередь переполнена!");
-            }
+
+            list?.AddLast(value);
+            numElems++;
+            lastOperation = -1;
+
         }
 
         public int PopFirst()
@@ -98,12 +80,11 @@ namespace CoursachADT_Deque
 
         public State SaveState()
         {
-            return new State(list, numElems, maxSize);
+            return new State(list, numElems);
         }
 
         public void SetState(State state)
         {
-            this.maxSize = state.maxSize;
             this.list = state.dequeState;
             this.numElems = state.numElems;
         }
@@ -119,6 +100,6 @@ namespace CoursachADT_Deque
             numElems = 0;
         }
 
-        
+
     }
 }

@@ -8,12 +8,10 @@ namespace CoursachADT_Deque
 {
     public class ParameterClass
     {
-        public int maxSize;
         public int numElems;
 
-        public ParameterClass(int maxSize, int numElems)
+        public ParameterClass(int numElems)
         {
-            this.maxSize = maxSize;
             this.numElems = numElems;
         }
     }

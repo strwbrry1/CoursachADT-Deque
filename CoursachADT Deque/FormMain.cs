@@ -22,8 +22,9 @@ namespace CoursachADT_Deque
         private void CreateDeque(ParameterClass parameters)
         {
             this.stateStorage = new StateStorage();
-            deque = new DequeRealizer(parameters.maxSize, parameters.numElems);
+            deque = new DequeRealizer(parameters.numElems);
             stateStorage.AddState(deque.SaveState());
+            stateStorage.NextState();
             if (!deque.isEmpty())
             {
                 pictureBoxVisualizer.Image = ShowDeque();
@@ -32,11 +33,13 @@ namespace CoursachADT_Deque
 
         private Bitmap? ShowDeque()
         {
-            visualizer = new DrawingDeque(deque.SaveState());
+            if (stateStorage.GetCurrentState() == null) return null;
+            if (deque.isEmpty()) return new Bitmap(pictureBoxVisualizer.Width, pictureBoxVisualizer.Height);
+            visualizer = new DrawingDeque(pictureBoxVisualizer.Width, pictureBoxVisualizer.Height);
 
             Bitmap bitmap = new(pictureBoxVisualizer.Width, pictureBoxVisualizer.Height);
             Graphics graphics = Graphics.FromImage(bitmap);
-            visualizer.Visualize(graphics);
+            visualizer.Visualize(graphics, stateStorage.GetCurrentState());
             return bitmap;
         }
 
@@ -48,6 +51,11 @@ namespace CoursachADT_Deque
             }
             deque.InsertFirst((int)numericUpDownInput.Value);
             stateStorage.AddState(deque.SaveState());
+            stateStorage.NextState();
+            if (!deque.isEmpty())
+            {
+                pictureBoxVisualizer.Image = ShowDeque();
+            }
             textBoxDebug.Text = deque.list.ToString();
         }
 
@@ -59,6 +67,8 @@ namespace CoursachADT_Deque
             }
             deque.InsertLast((int)numericUpDownInput.Value);
             stateStorage.AddState(deque.SaveState());
+            stateStorage.NextState();
+            pictureBoxVisualizer.Image = ShowDeque();
             textBoxDebug.Text = deque.list.ToString();
         }
 
@@ -70,6 +80,8 @@ namespace CoursachADT_Deque
             }
             deque.PopFirst();
             stateStorage.AddState(deque.SaveState());
+            stateStorage.NextState();
+            pictureBoxVisualizer.Image = ShowDeque();
             textBoxDebug.Text = deque.list.ToString();
         }
 
@@ -81,6 +93,8 @@ namespace CoursachADT_Deque
             }
             deque.PopLast();
             stateStorage.AddState(deque.SaveState());
+            stateStorage.NextState();
+            pictureBoxVisualizer.Image = ShowDeque();
             textBoxDebug.Text = deque.list.ToString();
         }
 
@@ -92,6 +106,8 @@ namespace CoursachADT_Deque
             }
             deque.Clear();
             stateStorage.AddState(deque.SaveState());
+            stateStorage.NextState();
+            pictureBoxVisualizer.Image = ShowDeque();
             textBoxDebug.Text = deque.list.ToString();
         }
 

@@ -136,9 +136,9 @@
             // 
             // textBoxDebug
             // 
-            textBoxDebug.Location = new Point(488, 25);
+            textBoxDebug.Location = new Point(488, 26);
             textBoxDebug.Name = "textBoxDebug";
-            textBoxDebug.Size = new Size(147, 27);
+            textBoxDebug.Size = new Size(147, 23);
             textBoxDebug.TabIndex = 11;
             // 
             // button1
@@ -175,7 +175,7 @@
             // 
             numericUpDownInput.Location = new Point(6, 26);
             numericUpDownInput.Name = "numericUpDownInput";
-            numericUpDownInput.Size = new Size(147, 27);
+            numericUpDownInput.Size = new Size(147, 23);
             numericUpDownInput.TabIndex = 7;
             // 
             // buttonCreateDeque
@@ -195,7 +195,7 @@
             menuStrip1.Items.AddRange(new ToolStripItem[] { менюToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
-            menuStrip1.Size = new Size(1166, 28);
+            menuStrip1.Size = new Size(1166, 24);
             menuStrip1.TabIndex = 8;
             menuStrip1.Text = "menuStrip1";
             // 
@@ -203,40 +203,40 @@
             // 
             менюToolStripMenuItem.DropDownItems.AddRange(new ToolStripItem[] { infoToolStripMenuItem, saveToolStripMenuItem, loadToolStripMenuItem });
             менюToolStripMenuItem.Name = "менюToolStripMenuItem";
-            менюToolStripMenuItem.Size = new Size(65, 24);
+            менюToolStripMenuItem.Size = new Size(53, 20);
             менюToolStripMenuItem.Text = "Меню";
             // 
             // infoToolStripMenuItem
             // 
             infoToolStripMenuItem.Name = "infoToolStripMenuItem";
-            infoToolStripMenuItem.Size = new Size(166, 26);
+            infoToolStripMenuItem.Size = new Size(133, 22);
             infoToolStripMenuItem.Text = "Инфо";
             infoToolStripMenuItem.Click += infoToolStripMenuItem_Click;
             // 
             // saveToolStripMenuItem
             // 
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
-            saveToolStripMenuItem.Size = new Size(166, 26);
+            saveToolStripMenuItem.Size = new Size(133, 22);
             saveToolStripMenuItem.Text = "Сохранить";
             // 
             // loadToolStripMenuItem
             // 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
-            loadToolStripMenuItem.Size = new Size(166, 26);
+            loadToolStripMenuItem.Size = new Size(133, 22);
             loadToolStripMenuItem.Text = "Загрузить";
             // 
             // pictureBoxVisualizer
             // 
             pictureBoxVisualizer.Dock = DockStyle.Fill;
-            pictureBoxVisualizer.Location = new Point(0, 28);
+            pictureBoxVisualizer.Location = new Point(0, 24);
             pictureBoxVisualizer.Name = "pictureBoxVisualizer";
-            pictureBoxVisualizer.Size = new Size(1166, 433);
+            pictureBoxVisualizer.Size = new Size(1166, 437);
             pictureBoxVisualizer.TabIndex = 9;
             pictureBoxVisualizer.TabStop = false;
             // 
             // FormMain
             // 
-            AutoScaleDimensions = new SizeF(9F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1166, 603);
             Controls.Add(pictureBoxVisualizer);

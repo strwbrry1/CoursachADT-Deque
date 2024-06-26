@@ -34,24 +34,16 @@ namespace CoursachADT_Deque
 
         private void buttonCreate_Click(object sender, EventArgs e)
         {
-            int maxSize;
             int numElems = 0;
             if (checkBoxStartValue.Checked)
             {
                 numElems = (int)numericUpDownValues.Value;
             }
 
-            maxSize = (int)numericUpDownMaxSize.Value;
-            if (maxSize != 0)
-            {
-                parameterClass = new ParameterClass(maxSize, numElems);
-                ParameterChanged.Invoke(parameterClass);
-                Close();
-            }
-            else
-            {
-                MessageBox.Show("Максимальное количество элементов не может быть 0!", "Ошибка", MessageBoxButtons.OK);
-            }
+            parameterClass = new ParameterClass(numElems);
+            ParameterChanged.Invoke(parameterClass);
+            Close();
+
 
         }
 

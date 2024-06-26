@@ -10,15 +10,12 @@ namespace CoursachADT_Deque
     {
         public int numElems;
 
-        public int maxSize;
-
         public DoubleLinkedList<int>? dequeState;
 
-        public State(DoubleLinkedList<int>? list, int numElems, int maxSize)
+        public State(DoubleLinkedList<int>? list, int numElems)
         {
             this.dequeState = list;
             this.numElems = numElems;
-            this.maxSize = maxSize;
         }
     }
 }

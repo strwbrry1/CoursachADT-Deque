@@ -13,7 +13,7 @@ namespace CoursachADT_Deque
 
         private int numElems;
 
-        public DoubleLinkedList() 
+        public DoubleLinkedList()
         {
             head = null;
             tail = null;
@@ -22,7 +22,7 @@ namespace CoursachADT_Deque
 
         public void AddLast(T value)
         {
-            Node<T> node = new Node<T>(value); 
+            Node<T> node = new Node<T>(value);
             if (head == null)
             {
                 head = node;
@@ -108,6 +108,11 @@ namespace CoursachADT_Deque
             return tail.data;
         }
 
+        public Node<T>? getHeadPointer()
+        {
+            return head;
+        }
+
         public int getSize()
         {
             return numElems;
@@ -133,11 +138,11 @@ namespace CoursachADT_Deque
 
     public class Node<T>
     {
-        public Node<T>? next {  get; set; }
-        public Node<T>? prev {  get; set; }
+        public Node<T>? next { get; set; }
+        public Node<T>? prev { get; set; }
         public T data { get; set; }
 
-        public Node(T data) 
+        public Node(T data)
         {
             this.data = data;
         }

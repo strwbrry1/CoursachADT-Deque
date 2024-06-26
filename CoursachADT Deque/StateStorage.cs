@@ -12,8 +12,8 @@ namespace CoursachADT_Deque
 
         private int currentState;
 
-        public StateStorage() 
-        { 
+        public StateStorage()
+        {
             StateList = new List<State>();
             currentState = -1;
         }
@@ -21,6 +21,13 @@ namespace CoursachADT_Deque
         public void AddState(State state)
         {
             StateList.Add(state);
+        }
+
+        public State? GetCurrentState()
+        {
+            if (currentState >= 0 && currentState < StateList.Count) return StateList[currentState];
+
+            return null;
         }
 
 

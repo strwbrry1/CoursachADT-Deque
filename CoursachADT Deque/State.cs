@@ -14,7 +14,13 @@ namespace CoursachADT_Deque
 
         public State(DoubleLinkedList<int>? list, int numElems)
         {
-            this.dequeState = list;
+            this.dequeState = new DoubleLinkedList<int>();
+            Node<int> curr = list.getHeadPointer();
+            while (curr != null) 
+            {
+                this.dequeState.AddLast(curr.data);
+                curr = curr.next;
+            }
             this.numElems = numElems;
         }
     }

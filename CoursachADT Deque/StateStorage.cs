@@ -56,8 +56,16 @@ namespace CoursachADT_Deque
 
         public bool NextState()
         {
+            if (currentState + 1 >= StateList.Count) { return false; }
             currentState++;
-            return currentState < StateList.Count;
+            return true;
+        }
+
+        public bool PreviousState() 
+        {
+            if (currentState - 1 < 0) return false;
+            currentState--;
+            return true;
         }
 
         public void Traverse()

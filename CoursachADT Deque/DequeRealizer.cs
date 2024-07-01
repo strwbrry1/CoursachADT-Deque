@@ -83,9 +83,17 @@ namespace CoursachADT_Deque
             return new State(list, numElems);
         }
 
-        public void SetState(State state)
+        public void SetState(State? state)
         {
-            this.list = state.dequeState;
+            if (state == null || state.dequeState == null) return;
+            Node<int> curr = state.dequeState.getHeadPointer();
+            this.list.Clear();
+            while (curr != null)
+            {
+                this.list.AddLast(curr.data);
+                curr = curr.next;
+            }
+            //this.list = state.dequeState;
             this.numElems = state.numElems;
         }
 

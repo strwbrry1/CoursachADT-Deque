@@ -54,10 +54,10 @@ namespace CoursachADT_Deque
             Node<int> curr = state.dequeState.getHeadPointer();
 
             if (curr == null) return;
+            int posX = ((pictureWidth / 2) - numUnits * (unitSize + spaceBetween) / 2);
             for (int i = 0; i < numUnits; i++)
             {
-
-                DrawUnit(g, ((pictureWidth / 2) - unitSize / 2) + (i * (unitSize + spaceBetween)), ((pictureHeight / 2) - unitSize / 2), curr.data.ToString());
+                DrawUnit(g, posX + (i * (unitSize + spaceBetween)), ((pictureHeight / 2) - unitSize / 2), curr.data.ToString());
                 curr = curr.next;
                 if (curr == null) break;
             }

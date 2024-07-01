@@ -116,5 +116,25 @@ namespace CoursachADT_Deque
             FormInfo form = new();
             form.Show();
         }
+
+        private void buttonNextStep_Click(object sender, EventArgs e)
+        {
+            if (stateStorage.NextState())
+            {
+                deque.SetState(stateStorage.GetCurrentState());
+                pictureBoxVisualizer.Image = ShowDeque();
+            }
+            return;
+        }
+
+        private void buttonPrevStep_Click(object sender, EventArgs e)
+        {
+            if (stateStorage.PreviousState())
+            {
+                deque.SetState(stateStorage.GetCurrentState());
+                pictureBoxVisualizer.Image = ShowDeque();
+            }
+            return;
+        }
     }
 }

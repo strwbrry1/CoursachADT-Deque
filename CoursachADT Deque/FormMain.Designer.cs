@@ -155,21 +155,23 @@
             // 
             // buttonPrevStep
             // 
-            buttonPrevStep.Location = new Point(1063, 26);
+            buttonPrevStep.Location = new Point(957, 26);
             buttonPrevStep.Name = "buttonPrevStep";
             buttonPrevStep.Size = new Size(97, 48);
             buttonPrevStep.TabIndex = 9;
             buttonPrevStep.Text = "Назад";
             buttonPrevStep.UseVisualStyleBackColor = true;
+            buttonPrevStep.Click += buttonPrevStep_Click;
             // 
             // buttonNextStep
             // 
-            buttonNextStep.Location = new Point(957, 26);
+            buttonNextStep.Location = new Point(1063, 26);
             buttonNextStep.Name = "buttonNextStep";
             buttonNextStep.Size = new Size(97, 48);
             buttonNextStep.TabIndex = 8;
             buttonNextStep.Text = "Вперёд";
             buttonNextStep.UseVisualStyleBackColor = true;
+            buttonNextStep.Click += buttonNextStep_Click;
             // 
             // numericUpDownInput
             // 

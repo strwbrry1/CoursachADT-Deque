@@ -49,6 +49,7 @@ namespace CoursachADT_Deque
             {
                 return;
             }
+            deque.SetState(stateStorage.GetLastState());
             deque.InsertFirst((int)numericUpDownInput.Value);
             stateStorage.AddState(deque.SaveState());
             stateStorage.NextState();
@@ -56,7 +57,6 @@ namespace CoursachADT_Deque
             {
                 pictureBoxVisualizer.Image = ShowDeque();
             }
-            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void buttonAddLast_Click(object sender, EventArgs e)
@@ -65,11 +65,11 @@ namespace CoursachADT_Deque
             {
                 return;
             }
+            deque.SetState(stateStorage.GetLastState());
             deque.InsertLast((int)numericUpDownInput.Value);
             stateStorage.AddState(deque.SaveState());
             stateStorage.NextState();
             pictureBoxVisualizer.Image = ShowDeque();
-            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void buttonRemoveFrist_Click(object sender, EventArgs e)
@@ -78,11 +78,11 @@ namespace CoursachADT_Deque
             {
                 return;
             }
+            deque.SetState(stateStorage.GetLastState());
             deque.PopFirst();
             stateStorage.AddState(deque.SaveState());
             stateStorage.NextState();
             pictureBoxVisualizer.Image = ShowDeque();
-            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void buttonRemoveLast_Click(object sender, EventArgs e)
@@ -91,11 +91,11 @@ namespace CoursachADT_Deque
             {
                 return;
             }
+            deque.SetState(stateStorage.GetLastState());
             deque.PopLast();
             stateStorage.AddState(deque.SaveState());
             stateStorage.NextState();
             pictureBoxVisualizer.Image = ShowDeque();
-            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void buttonClear_Click(object sender, EventArgs e)
@@ -108,7 +108,6 @@ namespace CoursachADT_Deque
             stateStorage.AddState(deque.SaveState());
             stateStorage.NextState();
             pictureBoxVisualizer.Image = ShowDeque();
-            textBoxDebug.Text = deque.list.ToString();
         }
 
         private void infoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -135,6 +134,24 @@ namespace CoursachADT_Deque
                 pictureBoxVisualizer.Image = ShowDeque();
             }
             return;
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            saveFileDialog1 = new SaveFileDialog();
+            saveFileDialog1.ShowDialog();
+            if (saveFileDialog1.FileName.Equals("")) return;
+            stateStorage.SaveToFile(saveFileDialog1.FileName);
+        }
+
+        private void loadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            openFileDialog1 = new OpenFileDialog();
+            openFileDialog1.ShowDialog();
+            if (openFileDialog1.FileName.Equals("")) return;
+            stateStorage.LoadFromFile(openFileDialog1.FileName);
+            stateStorage.Reset();
+            pictureBoxVisualizer.Image = ShowDeque();
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoursachADT_Deque
 {
+    [Serializable]
     public class DoubleLinkedList<T>
     {
         private Node<T>? head { get; set; }
@@ -136,6 +137,7 @@ namespace CoursachADT_Deque
         }
     }
 
+    [Serializable]
     public class Node<T>
     {
         public Node<T>? next { get; set; }

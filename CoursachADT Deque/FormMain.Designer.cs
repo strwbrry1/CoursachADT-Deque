@@ -34,8 +34,6 @@
             buttonRemoveLast = new Button();
             buttonClear = new Button();
             groupBoxControls = new GroupBox();
-            textBoxDebug = new TextBox();
-            button1 = new Button();
             buttonPrevStep = new Button();
             buttonNextStep = new Button();
             numericUpDownInput = new NumericUpDown();
@@ -46,6 +44,8 @@
             saveToolStripMenuItem = new ToolStripMenuItem();
             loadToolStripMenuItem = new ToolStripMenuItem();
             pictureBoxVisualizer = new PictureBox();
+            saveFileDialog1 = new SaveFileDialog();
+            openFileDialog1 = new OpenFileDialog();
             groupBoxControls.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownInput).BeginInit();
             menuStrip1.SuspendLayout();
@@ -115,8 +115,6 @@
             // 
             // groupBoxControls
             // 
-            groupBoxControls.Controls.Add(textBoxDebug);
-            groupBoxControls.Controls.Add(button1);
             groupBoxControls.Controls.Add(buttonPrevStep);
             groupBoxControls.Controls.Add(buttonNextStep);
             groupBoxControls.Controls.Add(numericUpDownInput);
@@ -134,28 +132,9 @@
             groupBoxControls.TabStop = false;
             groupBoxControls.Text = "Управление";
             // 
-            // textBoxDebug
-            // 
-            textBoxDebug.Location = new Point(488, 26);
-            textBoxDebug.Name = "textBoxDebug";
-            textBoxDebug.Size = new Size(147, 23);
-            textBoxDebug.TabIndex = 11;
-            // 
-            // button1
-            // 
-            button1.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            button1.BackColor = Color.Teal;
-            button1.ForeColor = Color.Transparent;
-            button1.Location = new Point(957, 80);
-            button1.Name = "button1";
-            button1.Size = new Size(203, 48);
-            button1.TabIndex = 10;
-            button1.Text = "Проход по изменениям";
-            button1.UseVisualStyleBackColor = false;
-            // 
             // buttonPrevStep
             // 
-            buttonPrevStep.Location = new Point(957, 26);
+            buttonPrevStep.Location = new Point(954, 80);
             buttonPrevStep.Name = "buttonPrevStep";
             buttonPrevStep.Size = new Size(97, 48);
             buttonPrevStep.TabIndex = 9;
@@ -165,7 +144,7 @@
             // 
             // buttonNextStep
             // 
-            buttonNextStep.Location = new Point(1063, 26);
+            buttonNextStep.Location = new Point(1057, 80);
             buttonNextStep.Name = "buttonNextStep";
             buttonNextStep.Size = new Size(97, 48);
             buttonNextStep.TabIndex = 8;
@@ -183,7 +162,7 @@
             // buttonCreateDeque
             // 
             buttonCreateDeque.Anchor = AnchorStyles.Bottom | AnchorStyles.Left;
-            buttonCreateDeque.Location = new Point(6, 81);
+            buttonCreateDeque.Location = new Point(6, 80);
             buttonCreateDeque.Name = "buttonCreateDeque";
             buttonCreateDeque.Size = new Size(147, 48);
             buttonCreateDeque.TabIndex = 6;
@@ -220,12 +199,14 @@
             saveToolStripMenuItem.Name = "saveToolStripMenuItem";
             saveToolStripMenuItem.Size = new Size(133, 22);
             saveToolStripMenuItem.Text = "Сохранить";
+            saveToolStripMenuItem.Click += saveToolStripMenuItem_Click;
             // 
             // loadToolStripMenuItem
             // 
             loadToolStripMenuItem.Name = "loadToolStripMenuItem";
             loadToolStripMenuItem.Size = new Size(133, 22);
             loadToolStripMenuItem.Text = "Загрузить";
+            loadToolStripMenuItem.Click += loadToolStripMenuItem_Click;
             // 
             // pictureBoxVisualizer
             // 
@@ -235,6 +216,10 @@
             pictureBoxVisualizer.Size = new Size(1166, 437);
             pictureBoxVisualizer.TabIndex = 9;
             pictureBoxVisualizer.TabStop = false;
+            // 
+            // openFileDialog1
+            // 
+            openFileDialog1.FileName = "openFileDialog1";
             // 
             // FormMain
             // 
@@ -249,7 +234,6 @@
             Name = "FormMain";
             Text = "АТД Дек на двусвязном списке";
             groupBoxControls.ResumeLayout(false);
-            groupBoxControls.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownInput).EndInit();
             menuStrip1.ResumeLayout(false);
             menuStrip1.PerformLayout();
@@ -275,7 +259,7 @@
         private NumericUpDown numericUpDownInput;
         private Button buttonPrevStep;
         private Button buttonNextStep;
-        private Button button1;
-        private TextBox textBoxDebug;
+        private SaveFileDialog saveFileDialog1;
+        private OpenFileDialog openFileDialog1;
     }
 }

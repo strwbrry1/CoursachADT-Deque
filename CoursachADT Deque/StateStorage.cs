@@ -1,11 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace CoursachADT_Deque
 {
+    [Serializable]
     public class StateStorage
     {
         private List<State> StateList;
@@ -30,6 +32,11 @@ namespace CoursachADT_Deque
             return null;
         }
 
+        public State? GetLastState()
+        {
+            currentState = StateList.Count - 1;
+            return StateList[currentState];
+        }
 
         public State? GetNextState()
         {
@@ -51,7 +58,7 @@ namespace CoursachADT_Deque
 
         public void Reset()
         {
-            currentState = -1;
+            currentState = 0;
         }
 
         public bool NextState()
@@ -68,20 +75,26 @@ namespace CoursachADT_Deque
             return true;
         }
 
-        public void Traverse()
-        {
-            //TODO
-        }
-
         public void SaveToFile(string filename)
         {
-            //TODO
+            using (FileStream fs = new(filename, FileMode.Create))
+            {
+                #pragma warning disable SYSLIB0011
+                BinaryFormatter bf = new BinaryFormatter();
+                bf.Serialize(fs, this);
+
+            }
         }
 
         public void LoadFromFile(string filename)
         {
             StateList = new List<State>();
-            //TODO
+            using (FileStream fs = new FileStream(filename, FileMode.Open))
+            {
+                BinaryFormatter bf = new BinaryFormatter();
+                StateList = ((StateStorage)bf.Deserialize(fs)).StateList;
+            }
+            
         }
     }
 }

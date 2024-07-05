@@ -73,11 +73,6 @@ namespace CoursachADT_Deque
             return temp;
         }
 
-        public void Step()
-        {
-            //TODO: выполнение одного шага операции
-        }
-
         public State SaveState()
         {
             return new State(list, numElems);

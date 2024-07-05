@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 
 namespace CoursachADT_Deque
 {
+    [Serializable]
     public class State
     {
         public int numElems;

@@ -36,30 +36,31 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(10, 7);
             label1.Name = "label1";
-            label1.Size = new Size(330, 40);
+            label1.Size = new Size(259, 30);
             label1.TabIndex = 0;
             label1.Text = "Программа визуализация \r\nДвусторонней очереди на двусвязном списке";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(16, 59);
+            label2.Location = new Point(14, 44);
             label2.Name = "label2";
-            label2.Size = new Size(590, 140);
+            label2.Size = new Size(501, 180);
             label2.TabIndex = 1;
             label2.Text = resources.GetString("label2.Text");
             // 
             // FormInfo
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(614, 330);
+            ClientSize = new Size(537, 248);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FormInfo";
-            Text = "FormInfo";
+            Text = "Информация";
             ResumeLayout(false);
             PerformLayout();
         }

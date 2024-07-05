@@ -114,27 +114,11 @@ namespace CoursachADT_Deque
             return head;
         }
 
-        public int getSize()
-        {
-            return numElems;
-        }
-
         public bool isEmpty()
         {
             return numElems == 0;
         }
 
-        public override string ToString()
-        {
-            string res = "";
-            Node<T>? curr = head;
-            while (curr != null)
-            {
-                res += curr.data.ToString() + " ";
-                curr = curr.next;
-            }
-            return res;
-        }
     }
 
     [Serializable]

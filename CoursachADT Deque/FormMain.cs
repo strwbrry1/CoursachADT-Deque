@@ -9,6 +9,11 @@ namespace CoursachADT_Deque
         public FormMain()
         {
             InitializeComponent();
+            if (deque == null) 
+            {
+                saveToolStripMenuItem.Enabled = false;
+                loadToolStripMenuItem.Enabled = false;
+            }
         }
 
         private void buttonCreateDeque_Click(object sender, EventArgs e)
@@ -25,6 +30,8 @@ namespace CoursachADT_Deque
             deque = new DequeRealizer(parameters.numElems);
             stateStorage.AddState(deque.SaveState());
             stateStorage.NextState();
+            saveToolStripMenuItem.Enabled = true;
+            loadToolStripMenuItem.Enabled = true;
             if (!deque.isEmpty())
             {
                 pictureBoxVisualizer.Image = ShowDeque();
@@ -118,7 +125,7 @@ namespace CoursachADT_Deque
 
         private void buttonNextStep_Click(object sender, EventArgs e)
         {
-            if (stateStorage.NextState())
+            if (stateStorage != null && stateStorage.NextState())
             {
                 deque.SetState(stateStorage.GetCurrentState());
                 pictureBoxVisualizer.Image = ShowDeque();
@@ -128,7 +135,7 @@ namespace CoursachADT_Deque
 
         private void buttonPrevStep_Click(object sender, EventArgs e)
         {
-            if (stateStorage.PreviousState())
+            if (stateStorage != null && stateStorage.PreviousState())
             {
                 deque.SetState(stateStorage.GetCurrentState());
                 pictureBoxVisualizer.Image = ShowDeque();
@@ -138,20 +145,36 @@ namespace CoursachADT_Deque
 
         private void saveToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            saveFileDialog1 = new SaveFileDialog();
-            saveFileDialog1.ShowDialog();
-            if (saveFileDialog1.FileName.Equals("")) return;
-            stateStorage.SaveToFile(saveFileDialog1.FileName);
+            try
+            {
+                saveFileDialog1 = new SaveFileDialog();
+                saveFileDialog1.ShowDialog();
+                if (saveFileDialog1.FileName.Equals("")) return;
+                stateStorage.SaveToFile(saveFileDialog1.FileName);
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
         }
 
         private void loadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            openFileDialog1 = new OpenFileDialog();
-            openFileDialog1.ShowDialog();
-            if (openFileDialog1.FileName.Equals("")) return;
-            stateStorage.LoadFromFile(openFileDialog1.FileName);
-            stateStorage.Reset();
-            pictureBoxVisualizer.Image = ShowDeque();
+            try
+            {
+                openFileDialog1 = new OpenFileDialog();
+                openFileDialog1.ShowDialog();
+                if (openFileDialog1.FileName.Equals("")) return;
+                stateStorage.LoadFromFile(openFileDialog1.FileName);
+                stateStorage.Reset();
+                pictureBoxVisualizer.Image = ShowDeque();
+
+            }
+            catch (Exception ex) 
+            {
+                MessageBox.Show(ex.Message, "Ошибка!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

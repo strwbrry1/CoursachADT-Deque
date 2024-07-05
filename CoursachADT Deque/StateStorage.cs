@@ -38,24 +38,6 @@ namespace CoursachADT_Deque
             return StateList[currentState];
         }
 
-        public State? GetNextState()
-        {
-            if (StateList[currentState + 1] != null)
-            {
-                return StateList[++currentState];
-            }
-            return null;
-        }
-
-        public State? GetPrevState()
-        {
-            if (currentState - 1 > 0)
-            {
-                return StateList[--currentState];
-            }
-            return null;
-        }
-
         public void Reset()
         {
             currentState = 0;

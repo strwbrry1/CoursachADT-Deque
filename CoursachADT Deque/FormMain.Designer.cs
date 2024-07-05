@@ -217,9 +217,14 @@
             pictureBoxVisualizer.TabIndex = 9;
             pictureBoxVisualizer.TabStop = false;
             // 
+            // saveFileDialog1
+            // 
+            saveFileDialog1.Filter = "Бинарные файлы (*.bin)|*.bin";
+            // 
             // openFileDialog1
             // 
             openFileDialog1.FileName = "openFileDialog1";
+            openFileDialog1.Filter = "Бинарные файлы (*.bin)|*.bin";
             // 
             // FormMain
             // 
